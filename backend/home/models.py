@@ -12,3 +12,8 @@ class CustomText(models.Model):
     title = models.CharField(
         max_length=150,
     )
+
+
+class Image(models.Model):
+    "Generated Model"
+    image1 = models.PositiveIntegerField()

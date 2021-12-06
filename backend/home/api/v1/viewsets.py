@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import HomePage, CustomText
-from .serializers import HomePageSerializer, CustomTextSerializer
+from home.models import CustomText, HomePage, Image
+from .serializers import CustomTextSerializer, HomePageSerializer, ImageSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -50,3 +50,12 @@ class CustomTextViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = CustomText.objects.all()
+
+
+class ImageViewSet(viewsets.ModelViewSet):
+    serializer_class = ImageSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = Image.objects.all()
